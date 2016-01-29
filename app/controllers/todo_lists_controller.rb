@@ -41,7 +41,12 @@ class TodoListsController < ApplicationController
 
 #Get /todo_list/all_lists
   def all_lists
+
+    if :search.empty?
      @todo_lists = TodoList.all
+    else
+      @todo_lists = TodoList.where(["title LIKE ?","%#{params[:search]}%" ])
+    end
   end
 
   # PATCH/PUT /todo_lists/1
