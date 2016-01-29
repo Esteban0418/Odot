@@ -41,7 +41,7 @@ class TodoListsController < ApplicationController
 
 #Get /todo_list/all_lists
   def all_lists
-     @todo_lists = Todo_lists.all
+     @todo_lists = TodoList.all
   end
 
   # PATCH/PUT /todo_lists/1

@@ -10,7 +10,7 @@ Odot::Application.routes.draw do
 
   resources :todo_lists do
     collection do
-      get "todo_lists/all_lists"
+      get :all_lists
     end
     put :email, on: :member
     resources :todo_items do
