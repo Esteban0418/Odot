@@ -45,7 +45,17 @@ class TodoListsController < ApplicationController
     if :search.empty?
      @todo_lists = TodoList.all
     else
-      @todo_lists = TodoList.where(["title LIKE ?","%#{params[:search]}%" ])
+      @todo_lists = TodoList.where(["title LIKE ?","%#{params[:search]}%" ]) 
+
+                  # @users = User.where(["first_name LIKE ? OR email LIKE ?","%#{params[:search]}%","%#{params[:search]}%"])
+                  
+                  # @users.each do |user|
+                   #   @todo_lists = user.todo_lists.all
+                  # end
+
+
+                               # @users = User.includes(:todo_list).where(["first_name LIKE ? OR email LIKE ?","%#{params[:search]}%","%#{params[:search]}%"]).references(:todo_list)
+
     end
   end
 
