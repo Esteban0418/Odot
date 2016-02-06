@@ -8,12 +8,8 @@ class TodoList < ActiveRecord::Base
 
 
   scope :name_or_email_search,
-   -> {
-
-    joins(:user).where("user.first_name LIKE ? OR user.email LIKE ?",
-                                                   "%#{params[:search]}%", "%#{params[:search]}%")
-  }
-
+   ->(search) {joins(:user).where("users.first_name LIKE ? OR users.email LIKE ?","%#{search}%", "%#{search}%")} 
+   
   scope :list_name, -> {where("title like ?","%#{params[:search]}%")}
 
   def has_completed_items?
