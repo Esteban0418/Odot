@@ -7,6 +7,11 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index
     @todo_lists = current_user.todo_lists
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /todo_lists/1
@@ -41,9 +46,6 @@ class TodoListsController < ApplicationController
 
 #Get /todo_list/all_lists
   def all_lists
-
-    puts "/////////////////"
-    puts params
     
     if not params[:search].present?
      @todo_lists = TodoList.all

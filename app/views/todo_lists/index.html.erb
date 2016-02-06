@@ -10,6 +10,15 @@
   </li>
 <% end %>
 </ul>
-<div class="row">
+
+<div>
+  <%= link_to "New List", new_todo_list_path , remote: true , class: "small-12 columns text-left"%>
+</div>
+
+<div id="task-form" style="display:none;">
+
+</div>
+
+<div>
  <%= link_to "Show All Lists", all_lists_todo_lists_path, class: "small-12 columns text-center"%>
 </div>
